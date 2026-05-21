@@ -24,8 +24,10 @@ public class VeterinarioController {
     }
 
     @GetMapping("/{id}")
-    public Veterinario buscarPorId(@PathVariable Long id){
-        return veterinarioRepository.findById(id).orElseThrow(() -> new VeterinarioInvalidoException("El veterinario no existe."));
+    public ResponseEntity<Veterinario> buscarPorId(@PathVariable Long id){
+        Veterinario veterinario = veterinarioService.buscarPorId(id);
+
+        return ResponseEntity.ok().body(veterinario);
     }
 
     @PostMapping
