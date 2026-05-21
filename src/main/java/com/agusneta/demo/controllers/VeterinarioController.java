@@ -52,12 +52,8 @@ public class VeterinarioController {
     }
 
     @DeleteMapping("/{id}")
-    public String eliminar(@PathVariable Long id){
-        try{
-            veterinarioRepository.deleteById(id);
-            return "Veterinario eliminado.";
-        }catch(Exception e){
-            return "Error al eliminar el Veterinario.";
-        }
+    public ResponseEntity<Void> eliminar(@PathVariable Long id){
+        veterinarioService.borrarVeterinario(id);
+        return ResponseEntity.noContent().build();
     }
 }
