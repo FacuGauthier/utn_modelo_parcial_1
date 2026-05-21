@@ -40,7 +40,7 @@ public class TurnoService {
     public List<Turno> listarTurnoPorMascota(Long idMascota) {
         if(idMascota == null) throw new TurnoInvalidoException("El ID no puede ser nulo.");
 
-        return turnoRepository.findByMascotaId(idMascota);
+        return turnoRepository.findByMascota_Id(idMascota);
     }
 
     public List<Turno> listarTurnoPorEstado(Estado estado) {
