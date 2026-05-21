@@ -2,7 +2,8 @@ package com.agusneta.demo.controllers;
 
 import com.agusneta.demo.excepciones.VeterinarioInvalidoException;
 import com.agusneta.demo.modelos.Veterinario;
-import com.agusneta.demo.repositorios.VeterinarioRepository;
+import com.agusneta.demo.services.VeterinarioService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
