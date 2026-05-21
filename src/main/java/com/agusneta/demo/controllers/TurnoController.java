@@ -28,7 +28,7 @@ public class TurnoController {
                 .body(turnoNew);
     }
 
-    @GetMapping("/mascota/{id}")
+    @GetMapping("/mascota/{idMascota}")
     public List<Turno> listarTurnoPorMascota(@PathVariable Long idMascota) {
         return turnoService.listarTurnoPorMascota(idMascota);
     }
