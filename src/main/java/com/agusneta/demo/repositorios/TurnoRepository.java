@@ -9,4 +9,5 @@ import java.util.List;
 public interface TurnoRepository extends JpaRepository<Turno,Long> {
     List<Turno> findByMascotaId(Long idMascota);
     List<Turno> findByEstado(Estado estado);
+    void deleteByVeterinarioId(Long idVeterinario);
 }
