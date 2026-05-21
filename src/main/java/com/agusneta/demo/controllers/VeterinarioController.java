@@ -56,6 +56,7 @@ public class VeterinarioController {
         return "Veterinario actualizado";
     }
 
+    @GetMapping("/especialidad/{especialidad}")
     public List<Veterinario> buscarPorEspecialidad(@PathVariable String especialidad){
         if(especialidad == null) {
             throw new VeterinarioInvalidoException("La especialidad no puede ser nula.");
