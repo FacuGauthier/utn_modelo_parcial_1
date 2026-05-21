@@ -40,14 +40,8 @@ public class VeterinarioController {
     }
 
     @PutMapping("/{id}")
-    public String actualizar(@PathVariable Long id, @RequestBody Veterinario veterinario){
-        if(id == null) {
-            throw new VeterinarioInvalidoException("El ID no puede ser nulo.");
-        }
-
-        if(veterinario == null) {
-            throw new VeterinarioInvalidoException("El veterinario no puede ser nulo.");
-        }
+    public ResponseEntity<Veterinario> actualizar(@PathVariable Long id, @RequestBody Veterinario veterinario){
+        Veterinario veterinarioMod = veterinarioService.modificarVeterinario(id, veterinario);
 
         return ResponseEntity.ok(veterinarioMod);
     }
