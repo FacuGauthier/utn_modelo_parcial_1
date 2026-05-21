@@ -48,11 +48,7 @@ public class VeterinarioController {
 
     @GetMapping("/especialidad/{especialidad}")
     public List<Veterinario> buscarPorEspecialidad(@PathVariable String especialidad){
-        if(especialidad == null) {
-            throw new VeterinarioInvalidoException("La especialidad no puede ser nula.");
-        }
-
-        return veterinarioRepository.findByEspecialidad(especialidad);
+        return  veterinarioService.listarPorEspecialidad(especialidad);
     }
 
     @DeleteMapping("/{id}")
