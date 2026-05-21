@@ -38,8 +38,12 @@ public class TurnoController {
     }
 
     @GetMapping("/estado/{estadoBuscar}")
-    public List<Turno> listarTurnoPorEstado(@PathVariable String estadoBuscar) {
-        return turnoService.listarTurnoPorEstado(Estado.valueOf(estadoBuscar));
+    public ResponseEntity<List<Turno>> listarTurnoPorEstado(@PathVariable String estadoBuscar) {
+        List<Turno> turnosEstado = turnoService.listarTurnoPorEstado(Estado.valueOf(estadoBuscar));
+        if(turnosEstado.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(turnosEstado);
     }
 
     @GetMapping("/{id}")
