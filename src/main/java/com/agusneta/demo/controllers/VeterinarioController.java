@@ -49,10 +49,7 @@ public class VeterinarioController {
             throw new VeterinarioInvalidoException("El veterinario no puede ser nulo.");
         }
 
-        veterinario.setId(id);
-        veterinarioRepository.save(veterinario);
-
-        return "Veterinario actualizado";
+        return ResponseEntity.ok(veterinarioMod);
     }
 
     @GetMapping("/especialidad/{especialidad}")
