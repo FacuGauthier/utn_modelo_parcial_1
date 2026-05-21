@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/veterinarios")
 @CrossOrigin("*")
 public class VeterinarioController {
-    private final VeterinarioRepository veterinarioRepository;
+    private final VeterinarioService veterinarioService;
 
     public VeterinarioController(VeterinarioRepository veterinarioRepository) {
         this.veterinarioRepository = veterinarioRepository;
