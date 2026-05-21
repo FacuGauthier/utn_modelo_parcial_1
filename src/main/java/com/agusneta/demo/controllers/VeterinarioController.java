@@ -31,10 +31,8 @@ public class VeterinarioController {
     }
 
     @PostMapping
-    public String guardar(@RequestBody Veterinario veterinario){
-        if(veterinario == null) {
-            throw new VeterinarioInvalidoException("El veterinario no puede ser nulo.");
-        }
+    public ResponseEntity<Veterinario> guardar(@RequestBody Veterinario veterinario){
+        Veterinario veterinarioNew = veterinarioService.crearVeterinario(veterinario);
 
         veterinario.setId(null);
         veterinarioRepository.save(veterinario);
