@@ -14,8 +14,8 @@ import java.util.List;
 public class VeterinarioController {
     private final VeterinarioService veterinarioService;
 
-    public VeterinarioController(VeterinarioRepository veterinarioRepository) {
-        this.veterinarioRepository = veterinarioRepository;
+    public VeterinarioController(VeterinarioService veterinarioService) {
+        this.veterinarioService = veterinarioService;
     }
 
     @GetMapping
