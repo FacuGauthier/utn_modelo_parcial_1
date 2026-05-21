@@ -34,10 +34,9 @@ public class VeterinarioController {
     public ResponseEntity<Veterinario> guardar(@RequestBody Veterinario veterinario){
         Veterinario veterinarioNew = veterinarioService.crearVeterinario(veterinario);
 
-        veterinario.setId(null);
-        veterinarioRepository.save(veterinario);
-
-        return "Veterinario guardado";
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(veterinarioNew);
     }
 
     @PutMapping("/{id}")
