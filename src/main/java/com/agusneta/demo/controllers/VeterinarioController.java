@@ -20,7 +20,7 @@ public class VeterinarioController {
 
     @GetMapping
     public List<Veterinario> listarTodas() {
-        return veterinarioRepository.findAll();
+        return veterinarioService.listarTodos();
     }
 
     @GetMapping("/{id}")
