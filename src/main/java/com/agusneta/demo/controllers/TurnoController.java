@@ -33,7 +33,7 @@ public class TurnoController {
         return turnoService.listarTurnoPorMascota(idMascota);
     }
 
-    @GetMapping("/estado/{estado}")
+    @GetMapping("/estado/{estadoBuscar}")
     public List<Turno> listarTurnoPorEstado(@PathVariable String estadoBuscar) {
         return turnoService.listarTurnoPorEstado(Estado.valueOf(estadoBuscar));
     }
