@@ -47,7 +47,7 @@ public class VeterinarioController {
     public ResponseEntity<Veterinario> actualizar(@PathVariable Long id, @RequestBody Veterinario veterinario){
         Veterinario veterinarioMod = veterinarioService.modificarVeterinario(id, veterinario);
 
-        return ResponseEntity.ok(veterinarioMod);
+        return ResponseEntity.status(HttpStatus.OK).body(veterinarioMod);
     }
 
     @GetMapping("/especialidad/{especialidad}")
