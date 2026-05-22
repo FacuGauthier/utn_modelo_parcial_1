@@ -47,8 +47,12 @@ public class VeterinarioController {
     }
 
     @GetMapping("/especialidad/{especialidad}")
-    public List<Veterinario> buscarPorEspecialidad(@PathVariable String especialidad){
-        return  veterinarioService.listarPorEspecialidad(especialidad);
+    public ResponseEntity<List<Veterinario>> buscarPorEspecialidad(@PathVariable String especialidad){
+        List<Veterinario> veterinariosEspecialidad = veterinarioService.listarPorEspecialidad(especialidad);
+        if(veterinariosEspecialidad.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(veterinariosEspecialidad);
     }
 
     @DeleteMapping("/{id}")
