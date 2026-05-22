@@ -19,8 +19,12 @@ public class VeterinarioController {
     }
 
     @GetMapping
-    public List<Veterinario> listarTodas() {
-        return veterinarioService.listarTodos();
+    public ResponseEntity<List<Veterinario>> listarTodas() {
+        List<Veterinario> veterinarios = veterinarioService.listarTodos();
+        if(veterinarios.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(veterinarios);
     }
 
     @GetMapping("/{id}")
