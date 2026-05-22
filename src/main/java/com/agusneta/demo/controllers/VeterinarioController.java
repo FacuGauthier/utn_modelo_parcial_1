@@ -60,7 +60,7 @@ public class VeterinarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id){
+    public ResponseEntity<String> eliminar(@PathVariable Long id){
         veterinarioService.borrarVeterinario(id);
         return ResponseEntity.noContent().build();
     }
