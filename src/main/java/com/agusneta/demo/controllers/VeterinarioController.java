@@ -31,7 +31,7 @@ public class VeterinarioController {
     public ResponseEntity<Veterinario> buscarPorId(@PathVariable Long id){
         Veterinario veterinario = veterinarioService.buscarPorId(id);
 
-        return ResponseEntity.ok().body(veterinario);
+        return ResponseEntity.status(HttpStatus.OK).body(veterinario);
     }
 
     @PostMapping
