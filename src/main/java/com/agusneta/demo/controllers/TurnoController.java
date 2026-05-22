@@ -50,7 +50,7 @@ public class TurnoController {
     public ResponseEntity<Turno> buscarTurnoPorId(@PathVariable Long id) {
         Turno turno = turnoService.buscarPorId(id);
 
-        return ResponseEntity.ok(turno);
+        return ResponseEntity.status(HttpStatus.FOUND).body(turno);
     }
 
     @DeleteMapping("/{id}")
